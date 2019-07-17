@@ -1,0 +1,172 @@
+//variables
+$primary: #2688FE;
+$secondary: #252439;
+$tertiary: #45456D;
+$quaternary: #9797BA;
+$quinary: #DEEDFF;
+$senary: #F6F9FD;
+$grey: #BDC2D0;
+$lightGrey: #F8FAFD;
+
+$TitleBold: 'Poppins-Bold';
+$TitleRegular: 'Poppins-Regular';
+
+//mixins
+@mixin flex($direction,$wrap,$justify-content,$align-items,$align-content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    align-content: $align-content;
+}
+@mixin text($xd-font-size,$font-family,$color) {
+    font-size: $xd-font-size;
+    font-family: $font-family;
+    color: $color;
+}
+//main css
+body {
+    margin: 0;
+    background: $senary;
+}
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
+.App {
+    @include flex(row,nowrap,space-between,flex-start,flex-start);
+}
+.left-side {
+    background: #FFFFFF;
+    padding: 33px;
+    width: 250px;
+    height: 100vh;
+    position: relative;
+}
+.right-side {
+    background: $lightGrey;
+    box-shadow: 0 2px 13px 0 rgba(0,0,0,0.03);
+    border-radius: 34px 0 0 34px;
+    padding: 20px;
+    width: 270px;
+    height: 100vh;
+}
+.user-info {
+    @include flex(row,nowrap,flex-start,center,center);
+    .user-name--size-big {
+        @include text(.9rem,$TitleBold,$secondary);
+    }
+    .user-role {
+        @include text(.7rem,$TitleRegular,$grey);
+    }
+}
+.vertical-menu {
+    padding-top: 20px;
+    height: 100%;
+    @include flex(column,nowrap,space-between,flex-start,flex-start);
+    .menu-item {
+        width: 100%;
+        cursor: pointer;
+        @include flex(row,nowrap,flex-start,center,center);
+        color: $grey;
+        margin-top: 20px;
+        transition: ease all .3s;
+        .menu-title {
+            font-family: $TitleRegular;
+            font-size: .85rem;
+            padding-left:8px;
+        }
+        &:hover,&.active {
+            color: $primary;
+        }
+    }
+}
+.text-head-title {
+    @include text(1.2rem,$TitleBold,$secondary);
+}
+.flex-row-space-between-center {
+    @include flex(row,nowrap,space-between,center,center);
+}
+
+//select
+.select {
+    cursor: pointer;
+    position: relative;
+    background: $senary;
+    border-radius: 6px;
+    .select-in {
+        padding: 9px;
+        @include flex(row,nowrap,center,center,center);
+    }
+    .title {
+        font-family: $TitleBold;
+        font-size: .8em;
+        color: $secondary;
+        padding-right: 10px;
+    }
+    .value {
+        font-family: $TitleRegular;
+        font-size: .8em;
+        color: $secondary;
+    }
+    .select-icon {
+        font-size: 1.1rem;
+    }
+    .select-options {
+        background: $senary;
+        overflow: hidden;
+        border-radius: 0 0 10px 10px;
+        right: 0px;
+        position:absolute;
+        box-shadow: 0 22px 24px 0 rgba(0,0,0,0.03);
+        margin-top: -5px;
+        .select-option {
+            border-radius: 6px;
+            margin-bottom:5px;
+            margin-top:5px;
+            margin-left:5px;
+            background-color: white !important;
+            font-family: $TitleRegular;
+            font-size: .75em;
+            color: $secondary;
+            text-align: left !important;
+            display: block !important;
+            padding: 10px;
+        }
+    }
+}
+.action-bar {
+    @include flex(row,nowrap,space-between,center,center);
+}
+.toggle-theme-button {
+    color: $secondary;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    border-radius: 20px 0 0 20px;
+    background: $grey;
+    z-index: 11111;
+    padding: 10px 10px 5px 10px;
+    cursor: pointer;
+    transition: ease all .2s;
+    .toggle-theme-icon {
+        font-size:1.2rem !important;
+    }
+    &:hover,&.active {
+        background: $secondary;
+        color: $senary;
+    }
+}
