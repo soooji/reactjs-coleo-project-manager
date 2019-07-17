@@ -1,9 +1,10 @@
-import React,{useState,useEffect,useRef} from 'react';
+import React,{useState,useEffect,useRef,useContext} from 'react';
 import { Frame, useCycle } from "framer";
 import ArrowDown from '@material-ui/icons/KeyboardArrowDownOutlined'
 import {useOutsideClick} from './../APIs/Utility'
 import {ThemeContext} from './../APIs/theme-context';
 export function Select(props) {  
+    const theme = useContext(ThemeContext);
     const [selectedOption,setSelectedOption] = useState({id: -1,title: 'Choose'})
     const [animate, cycle] = useCycle(
         {
@@ -82,7 +83,7 @@ export function Select(props) {
   return (
       <div ref={wrapperRef} className="select noselect">
         <div onClick={()=>toggleSelect()} className="select-in">
-            <div className="title"><SomeDiv/>{props.title}</div>
+            <div className="title">{theme.background + " | "}{props.title}</div>
             <div className="value">{selectedOption.title}</div>
             {props.arrow ? <Frame animate={animateArrow} width="initial" height="initial" background="initial" position="initial"><ArrowDown style={{marginLeft:5}} className="select-icon"/></Frame> : null}
         </div>
@@ -113,16 +114,3 @@ export function Select(props) {
     </div>
   );
 }
-
-class SomeDiv extends React.Component {
-  render() {
-    let theme = this.context;
-    return (
-      <>
-        {theme.background + " | "}
-      </>
-    )
-  }
-}
-
-SomeDiv.contextType = ThemeContext;

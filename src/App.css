@@ -48,6 +48,8 @@ a {
           align-items: flex-start;
   -ms-flex-line-pack: start;
       align-content: flex-start;
+  -webkit-transition: ease all .3s;
+  transition: ease all .3s;
 }
 
 .light-theme .left-side {

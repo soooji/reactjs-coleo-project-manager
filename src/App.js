@@ -16,13 +16,17 @@ function App() {
   return (
     <ThemeContext.Provider value={theme}>
       <div className={`App ${theme === themes.dark ? 'dark-theme' : 'light-theme'}`} style={{background:theme.background}}>
-        <LeftSide ToggleTheme={<div className={`toggle-theme-button ${theme === themes.dark ? 'active' : ''}`} onClick={()=>toggleTheme()}><Moon className="toggle-theme-icon"/></div>}/>
+
+        <LeftSide
+          ToggleTheme={<div className={`toggle-theme-button ${theme === themes.dark ? 'active' : ''}`} onClick={()=>toggleTheme()}><Moon className="toggle-theme-icon"/></div>}
+          />
+
         <CenterContent>
           <Dashboard/>
         </CenterContent>
-        <RightSide>
-          
-        </RightSide>
+
+        <RightSide/>
+
       </div>
     </ThemeContext.Provider>
   );
