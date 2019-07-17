@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './App.css'
 import LeftSide from './Components/Sides/LeftSide'
 import Dashboard from './Pages/Dashboard';
@@ -9,10 +9,12 @@ import Moon from '@material-ui/icons/Brightness2'
 import {ThemeContext, themes} from './APIs/theme-context';
 
 function App() {
-  const [theme,setTheme] = useState(themes.light);
+  const [theme,setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') == "light" ? themes.light : themes.dark : themes.light);
   const toggleTheme = () => {
     setTheme(theme === themes.dark ? themes.light : themes.dark)
+    localStorage.setItem('theme',theme === themes.dark ? 'light' : 'dark');
   };
+  
   return (
     <ThemeContext.Provider value={theme}>
       <div className={`App ${theme === themes.dark ? 'dark-theme' : 'light-theme'}`} style={{background:theme.background}}>

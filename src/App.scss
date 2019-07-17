@@ -69,6 +69,12 @@ a {
             color: $secondary !important;
         }
     }
+    .card-style {
+        background: white;
+    }
+    .white-text-on-dark {
+        color: inherit;
+    }
 }
 .dark-theme {
     .left-side,.right-side {
@@ -83,6 +89,12 @@ a {
         .user-name--size-big {
             color: white !important;
         }
+    }
+    .card-style {
+        background: $tertiary;
+    }
+    .white-text-on-dark {
+        color: white;
     }
 }
 .left-side,.right-side {
@@ -205,4 +217,7 @@ a {
         background: $secondary;
         color: $senary;
     }
+}
+.card-style {
+    background: white;
 }

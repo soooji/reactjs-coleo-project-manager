@@ -68,6 +68,14 @@ a {
   color: #252439 !important;
 }
 
+.light-theme .card-style {
+  background: white;
+}
+
+.light-theme .white-text-on-dark {
+  color: inherit;
+}
+
 .dark-theme .left-side, .dark-theme .right-side {
   background: #45456D;
 }
@@ -78,6 +86,14 @@ a {
 
 .dark-theme .user-info .user-name--size-big {
   color: white !important;
+}
+
+.dark-theme .card-style {
+  background: #45456D;
+}
+
+.dark-theme .white-text-on-dark {
+  color: white;
 }
 
 .left-side, .right-side {
@@ -327,5 +343,9 @@ a {
 .toggle-theme-button:hover, .toggle-theme-button.active {
   background: #252439;
   color: #F6F9FD;
+}
+
+.card-style {
+  background: white;
 }
 /*# sourceMappingURL=App.css.map */

@@ -17,8 +17,8 @@ function ActionCard() {
           return time
   }
   return (
-        <LargeCard className="action-bar">
-            <HeadTitle text={formatTime(date.getHours()) + ":"+ formatTime(date.getMinutes()) + ":" + formatTime(date.getSeconds())}/>
+        <LargeCard className="action-bar card-style">
+            <HeadTitle className="white-text-on-dark" text={formatTime(date.getHours()) + ":"+ formatTime(date.getMinutes()) + ":" + formatTime(date.getSeconds())}/>
             <Select
                 options={[
                     {id: 0,title: 'Availabe'},

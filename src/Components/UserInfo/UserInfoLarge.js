@@ -8,7 +8,7 @@ const UserImg = styled.img`
 `
 function UserInfoLarge(props) {
   return (
-    <div className="user-info" style={props.style}>
+    <div className={`user-info ${props.className}`} style={props.style}>
       <UserImg src={props.avatarUrl} size="45px"/>
         <div style={{marginLeft:12}}>
             <div className="user-name--size-big">
