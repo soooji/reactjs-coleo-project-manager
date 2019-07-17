@@ -29,6 +29,8 @@ a {
 }
 
 .App {
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,8 +50,40 @@ a {
       align-content: flex-start;
 }
 
+.light-theme .left-side {
+  background: white;
+}
+
+.light-theme .right-side {
+  background: #F8FAFD;
+}
+
+.light-theme .vertical-menu .menu-item {
+  color: #BDC2D0;
+}
+
+.light-theme .user-info .user-name--size-big {
+  color: #252439 !important;
+}
+
+.dark-theme .left-side, .dark-theme .right-side {
+  background: #45456D;
+}
+
+.dark-theme .vertical-menu .menu-item {
+  color: white;
+}
+
+.dark-theme .user-info .user-name--size-big {
+  color: white !important;
+}
+
+.left-side, .right-side {
+  -webkit-transition: ease all .3s;
+  transition: ease all .3s;
+}
+
 .left-side {
-  background: #FFFFFF;
   padding: 33px;
   width: 250px;
   height: 100vh;
@@ -57,7 +91,6 @@ a {
 }
 
 .right-side {
-  background: #F8FAFD;
   -webkit-box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.03);
           box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.03);
   border-radius: 34px 0 0 34px;
@@ -140,7 +173,6 @@ a {
           align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  color: #BDC2D0;
   margin-top: 20px;
   -webkit-transition: ease all .3s;
   transition: ease all .3s;
@@ -273,7 +305,7 @@ a {
 }
 
 .toggle-theme-button {
-  color: #252439;
+  color: white;
   position: absolute;
   top: 20px;
   right: 0px;
