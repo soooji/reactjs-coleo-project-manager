@@ -1,5 +1,6 @@
 import React from 'react';
 import TickIcon from '@material-ui/icons/Check'
+import { shortEnglishHumanizer } from '../../APIs/Utility';
 
 export default function TaskItem(props){
     return (
@@ -13,7 +14,7 @@ export default function TaskItem(props){
                     {props.task.project}
                 </div>
                 <div className="task-duration">
-                    {props.task.getHumanizedDuration()}
+                    {shortEnglishHumanizer(props.task.duration)}
                 </div>
                 <div className="task-action">
                     {

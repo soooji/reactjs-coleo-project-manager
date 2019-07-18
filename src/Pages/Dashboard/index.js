@@ -1,23 +1,31 @@
 import React from 'react';
 import ActionCard from './ActionCard';
 import Tasks from './Tasks';
-import MyWorkTimeChart from '../../Components/Charts/CustomTooltipChart';
+import BarChart from '../../Components/Charts/BarChart';
+import Projects from './Projects';
 function Dashboard() {
   const workTimeData = [
     {
-      label: 'Series 1',
-      data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+      label: 'Parkners',
+      data: [["Su", 1], ["Mo", 2], ["Tu", 4], ["We", 2], ["Th", 7],["Fr", 5],["Sa", 6]]
     },
     {
-      label: 'Series 2',
-      data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
-    }
+      label: 'LuckyHouse',
+      data: [["Su", 3], ["Mo", 1], ["Tu", 5], ["We", 6], ["Th", 2],["Fr", 3],["Sa", 4]],
+    },
+    {
+      label: 'Project Manager',
+      data: [["Su", 2], ["Tu", 4], ["We", 3], ["Fr", 5],["Sa", 7]],
+    } 
   ]
   return (
-    <div>
+    <div className="column-items">
       <ActionCard/>
       <Tasks/>
-      <MyWorkTimeChart data={workTimeData}/>
+      <div className="row-items">
+        <BarChart data={workTimeData}/>
+        <Projects/>
+      </div>
     </div>
   );
 }

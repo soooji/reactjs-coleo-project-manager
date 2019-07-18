@@ -4,49 +4,6 @@ import { ThemeContext, themes } from '../../APIs/theme-context';
 import { LargeCard } from '../Cards/Card';
 import { HeadTitle } from '../Texts/Text';
 
-// export default function MyChart() {
-//   const theme = useContext(ThemeContext)
-//   const data = React.useMemo(
-//     () => [
-//       {
-//         label: 'Series 1',
-//         data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
-//       },
-//       {
-//         label: 'Series 2',
-//         data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
-//       }
-//     ],
-//     []
-//   )
-//   const series = React.useMemo(() => ({ type: 'bar' }), [])
-//   const axes = React.useMemo(
-//     () => [
-//       { primary: true, position: 'bottom', type: 'ordinal' },
-//       { position: 'left', type: 'linear', stacked: true }
-//     ],
-//     []
-//   )
-
-
-//   const lineChart = (
-//     <div
-//       style={{
-//         width: '400px',
-//         height: '300px'
-//       }}
-//     >
-//       <Chart 
-//       dark={theme === themes.dark ? true : false}
-//       data={data} series={series} axes={axes} tooltip />
-//     </div>
-//   )
-//   return lineChart
-// }
-
-
-
-
 const defs = (
   <defs>
     <linearGradient id="0" x1="0" x2="0" y1="1" y2="0">
@@ -74,11 +31,11 @@ export default function CustomStyles(props) {
   })
   return (
     <LargeCard
-        className="worktime-chart-card"
+        className="chart-card half-card"
         title={<HeadTitle className="white-text-on-dark" text="Weekly Work Time"/>}
         actions={<></>}
     >
-      <div className="worktime-chart">
+      <div className="chart">
       {/* {JSON.stringify({ activeSeriesIndex, activeDatumIndex }, null, 2)} */}
         <MyChart
           data={props.data}
@@ -98,9 +55,9 @@ function MyChart({
   setState,...props
 }) {
   const theme = useContext(ThemeContext)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const data = React.useMemo(
-    () => props.data,
-    []
+    () => props.data
   )
   const series = React.useMemo(
     () => ({

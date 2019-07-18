@@ -14,7 +14,7 @@ function ActionCard() {
   }, [now])
   return (
 <LargeCard
-        className="card-style"
+        className="action-bar-card"
         title={
             <>
                 <HeadTitle className="white-text-on-dark" text={now.format('h:mm:ss')}/>

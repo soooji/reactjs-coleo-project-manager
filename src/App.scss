@@ -69,6 +69,7 @@ a {
     .white-text-on-dark {color: inherit;}
     .today-date {color: $tertiary;}
     .task-item {background: white;color: black;.task-progress{opacity: .2;background-image: linear-gradient(270deg, #38F1AA 0%, #2B8EE9 100%);}}
+    .mini-project-item {background: white;.mini-project-left{color:$secondary;}}
 }
 .dark-theme {
     .left-side,.right-side {background: $tertiary;}
@@ -78,6 +79,7 @@ a {
     .white-text-on-dark {color: white;}
     .today-date {color: $quinary;}
     .task-item {background: $secondary;color: white !important;.task-progress{opacity: 1;background-image: linear-gradient(270deg, #38F1AA 0%, #2B8EE9 100%);}}
+    .mini-project-item {background: $secondary;.mini-project-left{color:white;}}
 }
 .left-side,.right-side {
     @include normalTransition();
@@ -203,6 +205,7 @@ a {
 //Some cards :)
 .card-style {
     background: white;
+    display: inline-block;
 }
 .card-head-bar {
     @include flex(row,nowrap,space-between,center,center);
@@ -361,14 +364,83 @@ a {
         z-index: 1;
     }
 }
-.worktime-chart-card {
-    width: calc(50% - 20px);
+.chart-card {
     height: auto;
-    .worktime-chart {
+    .chart {
+        font-family: $TitleRegular !important;
         width: 100%;
-        height: 240px;
+        height: 220px;
         margin-top:20px;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+.action-bar-card {
+    width: 100%;
+}
+.tasks-list-card {
+    width: 100%;
+}
+.column-items {
+    width: 100%;
+    @include flex(column,nowrap,space-between,baseline,baseline);
+}
+.row-items {
+    width: 100%;
+    @include flex(row,nowrap,space-between,baseline,baseline);
+}
+.half-card {
+    width: calc(50% - 10px);
+}
+
+//projects
+.mini-project-item {
+    @include flex(row,nowrap,space-between,center,center);
+    padding: 9px;
+    width: 100%;
+    // box-shadow: 0 4px 15px 0 rgba(0,0,0,0.05);
+    box-shadow: 0 22px 30px 0 rgba(0, 0, 0, 0.025);
+    margin-top: 10px;
+    border-radius: 12px;
+    @include normalTransition();
+    &:hover {
+        box-shadow: 0 22px 27px 0 rgba(0,0,0,0.06);
+    }
+    .mini-project-left {
+        @include flex(row,nowrap,flex-start,center,center);
+        color: $secondary;
+        .project-logo {
+            width: 45px;
+            height: 45px; 
+            border-radius: 8px;
+            background-color: $grey;
+            background-size: cover;
+            background-position: center;
+        }
+        .project-details {
+            @include flex(column,nowrap,center,flex-start,center);
+            padding-left: 10px;
+            .project-title {
+                font-family: $TitleBold;
+                font-size: .8rem;
+                padding-bottom: 2px;
+            }
+            .project-detail-line {
+                @include flex(row,nowrap,flex-start,center,center);
+                font-family: $TitleRegular;
+                font-size: .6rem;
+                .title {
+                    opacity: .5;
+                    padding-right: 4px;
+                }
+            }
+        }
+    }
+    .mini-project-progress-percentage {
+        font-family: $TitleBold;
+        font-size: 1rem;
+        color: #2688FE;
+        text-align: right;
+        padding-right: 10px;
     }
 }

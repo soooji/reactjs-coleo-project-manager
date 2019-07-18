@@ -1,6 +1,4 @@
 import { Model } from "objectmodel"
-import { shortEnglishHumanizer } from "../APIs/Utility";
-
 
 const TaskModel = {
     id: Number,
@@ -12,9 +10,6 @@ const TaskModel = {
 }
 
 export class Task extends Model(TaskModel){
-    getHumanizedDuration() {
-        return shortEnglishHumanizer(this.duration)
-    }
     getAvailableActionText() {
         switch (this.status) {
             case 'notStarted':
