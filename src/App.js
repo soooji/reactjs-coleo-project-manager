@@ -9,7 +9,7 @@ import Moon from '@material-ui/icons/Brightness2'
 import {ThemeContext, themes} from './APIs/theme-context';
 
 function App() {
-  const [theme,setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') == "light" ? themes.light : themes.dark : themes.light);
+  const [theme,setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') === "light" ? themes.light : themes.dark : themes.light);
   const toggleTheme = () => {
     setTheme(theme === themes.dark ? themes.light : themes.dark)
     localStorage.setItem('theme',theme === themes.dark ? 'light' : 'dark');

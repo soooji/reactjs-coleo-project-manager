@@ -13,27 +13,31 @@ function ActionCard() {
     };
   }, [now])
   return (
-        <LargeCard className="card-head-bar card-style">
-            <div className="card-head-title-box">
+<LargeCard
+        className="card-style"
+        title={
+            <>
                 <HeadTitle className="white-text-on-dark" text={now.format('h:mm:ss')}/>
                 <CircleSpacer style={{marginLeft:10,marginRight:10}}/>
                 <div className="today-date">
                     {now.format('MMM Do')}
                 </div>
-            </div>
-            <div className="card-head-actions">
-                <Select
-                    options={[
-                        {id: 0,title: 'Availabe'},
-                        {id: 1,title: 'Unavailable'},
-                        {id: 2,title: 'Resting'},
-                    ]}
-                    arrow={true}
-                    selectedOption={0}
-                    title="Status:"
-                />
-            </div>
-      </LargeCard>
+            </>
+        }
+        actions={
+            <Select
+                options={[
+                    {id: 0,title: 'Availabe'},
+                    {id: 1,title: 'Unavailable'},
+                    {id: 2,title: 'Resting'},
+                ]}
+                arrow={true}
+                selectedOption={0}
+                title="Status:"
+            />
+        }
+    >
+    </LargeCard>
   );
 }
 

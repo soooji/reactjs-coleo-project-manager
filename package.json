@@ -8,6 +8,7 @@
     "framer": "^1.0.14",
     "material-icons-react": "^1.0.4",
     "moment": "^2.24.0",
+    "objectmodel": "^4.0.1",
     "react": "^16.8.6",
     "react-clock": "^2.3.0",
     "react-day-picker": "^7.3.0",
