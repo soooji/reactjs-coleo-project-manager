@@ -25,6 +25,15 @@ $TitleRegular: 'Poppins-Regular';
     font-family: $font-family;
     color: $color;
 }
+@mixin noselect() {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
 //main css
 body {
     margin: 0;
@@ -75,6 +84,9 @@ a {
     .white-text-on-dark {
         color: inherit;
     }
+    .today-date {
+        color: $tertiary;
+    }
 }
 .dark-theme {
     .left-side,.right-side {
@@ -95,6 +107,9 @@ a {
     }
     .white-text-on-dark {
         color: white;
+    }
+    .today-date {
+        color: $quinary;
     }
 }
 .left-side,.right-side {
@@ -155,6 +170,7 @@ a {
     position: relative;
     background: $senary;
     border-radius: 6px;
+    color: $secondary;
     .select-in {
         padding: 9px;
         @include flex(row,nowrap,center,center,center);
@@ -162,42 +178,40 @@ a {
     .title {
         font-family: $TitleBold;
         font-size: .8em;
-        color: $secondary;
+        // color: $secondary;
         padding-right: 10px;
     }
     .value {
         font-family: $TitleRegular;
         font-size: .8em;
-        color: $secondary;
+        // color: $secondary;
     }
     .select-icon {
         font-size: 1.1rem;
     }
     .select-options {
-        background: $senary;
+        // background: $senary;
         overflow: hidden;
         border-radius: 0 0 10px 10px;
         right: 0px;
         position:absolute;
         box-shadow: 0 22px 24px 0 rgba(0,0,0,0.03);
         margin-top: -5px;
+        z-index: 111;
         .select-option {
             border-radius: 6px;
             margin-bottom:5px;
             margin-top:5px;
             margin-left:5px;
-            background-color: white !important;
+            // background-color: white !important;
             font-family: $TitleRegular;
             font-size: .75em;
-            color: $secondary;
+            // color: $secondary;
             text-align: left !important;
             display: block !important;
             padding: 10px;
         }
     }
-}
-.action-bar {
-    @include flex(row,nowrap,space-between,center,center);
 }
 .toggle-theme-button {
     color: white;
@@ -218,6 +232,65 @@ a {
         color: $senary;
     }
 }
+//Some cards :)
 .card-style {
     background: white;
+}
+.card-head-bar {
+    @include flex(row,nowrap,space-between,center,center);
+}
+.card-head-actions {
+    @include flex(row,nowrap,flex-end,center,center);
+}
+.card-head-title-box {
+    @include flex(row,nowrap,flex-start,center,center);
+}
+.today-date {
+    opacity: 0.32;
+    font-family: $TitleRegular;
+    font-size: .9rem;
+}
+//input
+.date-input {
+    cursor: pointer;
+    position: relative;
+    border-radius: 6px;
+    padding: 9px;
+    margin-right: 10px;
+    @include flex(row,nowrap,flex-start,center,center);
+    .date-icon {
+        font-size: 1em;
+        color: $grey;
+    }
+    input {
+        font-family: $TitleRegular;
+        font-size: .8em;
+        border: 0;
+        width: fit-content;
+        text-align: right;
+        outline: none;
+        cursor: pointer;
+        @include noselect();
+        background: transparent;
+    }
+    .input-in {
+        @include flex(row,nowrap,center,center,center);
+    }
+    .DayPickerInput {
+        * {
+            outline: none !important;
+            font-family: $TitleRegular;
+        }
+        .DayPicker-Weekdays {
+            font-size: .7rem;
+        }
+        .DayPicker-Body {
+            font-size: .9rem;
+        }
+    }
+    .DayPickerInput-Overlay {
+        margin-top: 10px;
+        box-shadow: 0 15px 30px 0 rgba(0,0,0,0.04);
+        border-radius: 10px !important;
+    }
 }

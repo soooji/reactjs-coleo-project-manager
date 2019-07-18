@@ -1,34 +1,38 @@
 import React,{useState,useEffect} from 'react';
 import { LargeCard } from '../../Components/Cards/Card';
 import { HeadTitle } from '../../Components/Texts/Text';
-import { Select } from '../../Components/Select';
+import { Select } from '../../Components/Form/Select';
+import { CircleSpacer } from '../../Components/Spacer/Spacers';
+import moment from 'moment'
 function ActionCard() {
-  const [date,setDate] = useState(new Date());
+  const [now,setNow] = useState(moment());
   useEffect(() => {
-    const clock = setInterval(() => setDate(new Date()),1000);
+    const clock = setInterval(() => setNow(moment()),1000);
     return () => {
         clearInterval(clock)
     };
-  }, [date])
-  function formatTime(time) {
-      if(time<10)
-          return `0${time}`
-      else
-          return time
-  }
+  }, [now])
   return (
-        <LargeCard className="action-bar card-style">
-            <HeadTitle className="white-text-on-dark" text={formatTime(date.getHours()) + ":"+ formatTime(date.getMinutes()) + ":" + formatTime(date.getSeconds())}/>
-            <Select
-                options={[
-                    {id: 0,title: 'Availabe'},
-                    {id: 1,title: 'Unavailable'},
-                    {id: 2,title: 'Resting'},
-                ]}
-                arrow={true}
-                selectedOption={0}
-                title="Status:"
-            />
+        <LargeCard className="card-head-bar card-style">
+            <div className="card-head-title-box">
+                <HeadTitle className="white-text-on-dark" text={now.format('h:mm:ss')}/>
+                <CircleSpacer style={{marginLeft:10,marginRight:10}}/>
+                <div className="today-date">
+                    {now.format('MMM Do')}
+                </div>
+            </div>
+            <div className="card-head-actions">
+                <Select
+                    options={[
+                        {id: 0,title: 'Availabe'},
+                        {id: 1,title: 'Unavailable'},
+                        {id: 2,title: 'Resting'},
+                    ]}
+                    arrow={true}
+                    selectedOption={0}
+                    title="Status:"
+                />
+            </div>
       </LargeCard>
   );
 }

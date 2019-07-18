@@ -76,6 +76,10 @@ a {
   color: inherit;
 }
 
+.light-theme .today-date {
+  color: #45456D;
+}
+
 .dark-theme .left-side, .dark-theme .right-side {
   background: #45456D;
 }
@@ -94,6 +98,10 @@ a {
 
 .dark-theme .white-text-on-dark {
   color: white;
+}
+
+.dark-theme .today-date {
+  color: #DEEDFF;
 }
 
 .left-side, .right-side {
@@ -237,6 +245,7 @@ a {
   position: relative;
   background: #F6F9FD;
   border-radius: 6px;
+  color: #252439;
 }
 
 .select .select-in {
@@ -263,14 +272,12 @@ a {
 .select .title {
   font-family: "Poppins-Bold";
   font-size: .8em;
-  color: #252439;
   padding-right: 10px;
 }
 
 .select .value {
   font-family: "Poppins-Regular";
   font-size: .8em;
-  color: #252439;
 }
 
 .select .select-icon {
@@ -278,7 +285,6 @@ a {
 }
 
 .select .select-options {
-  background: #F6F9FD;
   overflow: hidden;
   border-radius: 0 0 10px 10px;
   right: 0px;
@@ -286,6 +292,7 @@ a {
   -webkit-box-shadow: 0 22px 24px 0 rgba(0, 0, 0, 0.03);
           box-shadow: 0 22px 24px 0 rgba(0, 0, 0, 0.03);
   margin-top: -5px;
+  z-index: 111;
 }
 
 .select .select-options .select-option {
@@ -293,33 +300,11 @@ a {
   margin-bottom: 5px;
   margin-top: 5px;
   margin-left: 5px;
-  background-color: white !important;
   font-family: "Poppins-Regular";
   font-size: .75em;
-  color: #252439;
   text-align: left !important;
   display: block !important;
   padding: 10px;
-}
-
-.action-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
 }
 
 .toggle-theme-button {
@@ -347,5 +332,166 @@ a {
 
 .card-style {
   background: white;
+}
+
+.card-head-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.card-head-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.card-head-title-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.today-date {
+  opacity: 0.32;
+  font-family: "Poppins-Regular";
+  font-size: .9rem;
+}
+
+.date-input {
+  cursor: pointer;
+  position: relative;
+  border-radius: 6px;
+  padding: 9px;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.date-input .date-icon {
+  font-size: 1em;
+  color: #BDC2D0;
+}
+
+.date-input input {
+  font-family: "Poppins-Regular";
+  font-size: .8em;
+  border: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: right;
+  outline: none;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  background: transparent;
+}
+
+.date-input .input-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.date-input .DayPickerInput * {
+  outline: none !important;
+  font-family: "Poppins-Regular";
+}
+
+.date-input .DayPickerInput .DayPicker-Weekdays {
+  font-size: .7rem;
+}
+
+.date-input .DayPickerInput .DayPicker-Body {
+  font-size: .9rem;
+}
+
+.date-input .DayPickerInput-Overlay {
+  margin-top: 10px;
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.04);
+          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.04);
+  border-radius: 10px !important;
 }
 /*# sourceMappingURL=App.css.map */

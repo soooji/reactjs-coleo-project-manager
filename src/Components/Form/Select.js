@@ -1,10 +1,10 @@
 import React,{useState,useEffect,useRef,useContext} from 'react';
 import { Frame, useCycle } from "framer";
 import ArrowDown from '@material-ui/icons/KeyboardArrowDownOutlined'
-import {useOutsideClick} from './../APIs/Utility'
-import {ThemeContext} from './../APIs/theme-context';
+import {useOutsideClick} from './../../APIs/Utility'
+import { themes,ThemeContext } from '../../APIs/theme-context';
 export function Select(props) {  
-    const theme = useContext(ThemeContext);
+    const theme = useContext(ThemeContext)
     const [selectedOption,setSelectedOption] = useState({id: -1,title: 'Choose'})
     const [animate, cycle] = useCycle(
         {
@@ -81,9 +81,14 @@ export function Select(props) {
     const wrapperRef = useRef(null);
     useOutsideClick(wrapperRef,closeSelect);
   return (
-      <div ref={wrapperRef} className="select noselect">
+      <div ref={wrapperRef} className="select noselect"
+        style={{
+            background: theme === themes.dark ? theme.background : '#F6F9FD',
+            color: theme === themes.dark ? 'white' : '#252439',
+        }}
+      >
         <div onClick={()=>toggleSelect()} className="select-in">
-            <div className="title">{theme.background + " | "}{props.title}</div>
+            <div className="title">{props.title}</div>
             <div className="value">{selectedOption.title}</div>
             {props.arrow ? <Frame animate={animateArrow} width="initial" height="initial" background="initial" position="initial"><ArrowDown style={{marginLeft:5}} className="select-icon"/></Frame> : null}
         </div>
@@ -102,7 +107,7 @@ export function Select(props) {
                     custom={v}
                     width="calc(100% - 10px)"
                     height="initial"
-                    background="inherit"
+                    background={theme === themes.dark ? theme.foreground : 'white'}
                     className="select-option"
                     position="relative"
                     onClick={()=>changeOption(v)}

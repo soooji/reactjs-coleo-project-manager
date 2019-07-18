@@ -7,8 +7,10 @@
     "@material-ui/icons": "^4.2.1",
     "framer": "^1.0.14",
     "material-icons-react": "^1.0.4",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-clock": "^2.3.0",
+    "react-day-picker": "^7.3.0",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2"
