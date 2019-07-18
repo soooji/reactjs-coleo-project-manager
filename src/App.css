@@ -48,8 +48,8 @@ a {
           align-items: flex-start;
   -ms-flex-line-pack: start;
       align-content: flex-start;
-  -webkit-transition: ease all .3s;
-  transition: ease all .3s;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
 }
 
 .light-theme .left-side {
@@ -80,6 +80,17 @@ a {
   color: #45456D;
 }
 
+.light-theme .task-item {
+  background: white;
+  color: black;
+}
+
+.light-theme .task-item .task-progress {
+  opacity: .2;
+  background-image: -webkit-gradient(linear, right top, left top, from(#38F1AA), to(#2B8EE9));
+  background-image: linear-gradient(270deg, #38F1AA 0%, #2B8EE9 100%);
+}
+
 .dark-theme .left-side, .dark-theme .right-side {
   background: #45456D;
 }
@@ -104,9 +115,20 @@ a {
   color: #DEEDFF;
 }
 
+.dark-theme .task-item {
+  background: #252439;
+  color: white !important;
+}
+
+.dark-theme .task-item .task-progress {
+  opacity: 1;
+  background-image: -webkit-gradient(linear, right top, left top, from(#38F1AA), to(#2B8EE9));
+  background-image: linear-gradient(270deg, #38F1AA 0%, #2B8EE9 100%);
+}
+
 .left-side, .right-side {
-  -webkit-transition: ease all .3s;
-  transition: ease all .3s;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
 }
 
 .left-side {
@@ -200,8 +222,8 @@ a {
   -ms-flex-line-pack: center;
       align-content: center;
   margin-top: 20px;
-  -webkit-transition: ease all .3s;
-  transition: ease all .3s;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
 }
 
 .vertical-menu .menu-item .menu-title {
@@ -317,8 +339,8 @@ a {
   z-index: 11111;
   padding: 10px 10px 5px 10px;
   cursor: pointer;
-  -webkit-transition: ease all .2s;
-  transition: ease all .2s;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
 }
 
 .toggle-theme-button .toggle-theme-icon {
@@ -455,6 +477,22 @@ a {
   background: transparent;
 }
 
+.date-input input::-webkit-input-placeholder {
+  color: inherit;
+}
+
+.date-input input:-ms-input-placeholder {
+  color: inherit;
+}
+
+.date-input input::-ms-input-placeholder {
+  color: inherit;
+}
+
+.date-input input::placeholder {
+  color: inherit;
+}
+
 .date-input .input-in {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -496,24 +534,12 @@ a {
   border-radius: 10px !important;
 }
 
-.task-item {
-  -webkit-box-shadow: 0 22px 30px 0 rgba(0, 0, 0, 0.025);
-          box-shadow: 0 22px 30px 0 rgba(0, 0, 0, 0.025);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  margin-top: 10px;
-  height: 45px;
-}
-
-.task-item .task-container {
-  position: absolute;
+.tasks-title-bar {
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 11;
-  color: #000000;
+  font-family: "Poppins-Regular";
+  font-size: .7rem;
+  color: #9797BA;
+  padding-top: 20px;
   padding-left: 20px;
   padding-right: 10px;
   display: -webkit-box;
@@ -535,7 +561,82 @@ a {
       align-content: center;
 }
 
+.tasks-title-bar .title {
+  width: 60%;
+  text-align: left;
+}
+
+.tasks-title-bar .project {
+  width: 15%;
+  text-align: center;
+}
+
+.tasks-title-bar .duration {
+  width: 15%;
+  text-align: center;
+}
+
+.tasks-title-bar .duration {
+  width: 15%;
+  text-align: center;
+}
+
+.tasks-title-bar .action {
+  width: 10%;
+  text-align: center;
+}
+
+.task-item {
+  -webkit-box-shadow: 0 22px 30px 0 rgba(0, 0, 0, 0.025);
+          box-shadow: 0 22px 30px 0 rgba(0, 0, 0, 0.025);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+  height: 45px;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
+}
+
+.task-item:hover {
+  -webkit-box-shadow: 0 22px 27px 0 rgba(0, 0, 0, 0.06);
+          box-shadow: 0 22px 27px 0 rgba(0, 0, 0, 0.06);
+}
+
+.task-item .task-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  padding-left: 20px;
+  padding-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.task-item .task-container * {
+  text-overflow: clip;
+}
+
 .task-item .task-container .task-title {
+  cursor: pointer;
   width: 60%;
   font-family: Colfax-Medium;
   font-size: .85rem;
@@ -567,9 +668,9 @@ a {
           flex-direction: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -585,14 +686,22 @@ a {
   font-family: "Poppins-Bold";
   font-size: .75em;
   padding: 5px 12px;
-  cursor: pointer;
-  -webkit-transition: ease all .25s;
-  transition: ease all .25s;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
 }
 
-.task-item .task-container .task-action .task-action-button:hover {
+.task-item .task-container .task-action .task-action-button.normal-button {
+  cursor: pointer;
+}
+
+.task-item .task-container .task-action .task-action-button.normal-button:hover {
   background: #2688FE;
   color: white;
+}
+
+.task-item .task-container .task-action .task-action-button .check-icon {
+  margin-bottom: -4px;
+  font-size: .9rem;
 }
 
 .task-item .task-progress {
@@ -601,9 +710,19 @@ a {
   top: 0;
   left: 0;
   border-radius: 8px;
-  background-image: -webkit-gradient(linear, right top, left top, from(#38F1AA), to(#2B8EE9));
-  background-image: linear-gradient(270deg, #38F1AA 0%, #2B8EE9 100%);
-  opacity: .2;
   z-index: 1;
+}
+
+.worktime-chart-card {
+  width: calc(50% - 20px);
+  height: auto;
+}
+
+.worktime-chart-card .worktime-chart {
+  width: 100%;
+  height: 240px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /*# sourceMappingURL=App.css.map */

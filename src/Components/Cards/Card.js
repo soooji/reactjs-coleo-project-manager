@@ -9,7 +9,7 @@ const LargeCardComponent = styled.div`
 
 export function LargeCard(props) {
   return (
-    <LargeCardComponent className="card-style">
+    <LargeCardComponent className={`card-style ${props.className}`}>
         <div className="card-head-bar">
             <div className="card-head-title-box">
                 {props.title}
