@@ -52,6 +52,38 @@ a {
   transition: ease all .26s;
 }
 
+/* width */
+* {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+* ::-webkit-scrollbar {
+  width: 5px;
+}
+
+* ::-webkit-scrollbar-track {
+  background: rgba(69, 69, 109, 0);
+}
+
+* ::-webkit-scrollbar-thumb {
+  background: rgba(151, 151, 186, 0.3);
+  border-radius: 5px;
+}
+
+* ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.Flipped {
+  direction: rtl;
+}
+
+.Content {
+  direction: ltr;
+}
+
 .light-theme .left-side {
   background: white;
 }

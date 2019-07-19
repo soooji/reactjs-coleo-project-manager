@@ -60,6 +60,37 @@ a {
     @include flex(row,nowrap,space-between,flex-start,flex-start);
     @include normalTransition();
 }
+/* width */
+* {
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: change-color($color: $tertiary,$alpha: 0.0); 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: change-color($color: $quaternary,$alpha: 0.3);
+        border-radius: 5px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+}
+.Flipped
+{
+    direction: rtl;
+}
+.Content
+{
+    direction: ltr;
+}
+
 //themes
 .light-theme {
     .left-side {background: white;}

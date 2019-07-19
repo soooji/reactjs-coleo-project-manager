@@ -25,7 +25,7 @@ function App() {
 
         <CenterContent>
           <Dashboard/>
-        </CenterContent>
+        </CenterContent> 
 
         <RightSide/>
 
