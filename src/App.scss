@@ -12,6 +12,7 @@ $TitleBold: 'Poppins-Bold';
 $TitleRegular: 'Poppins-Regular';
 $ContentMedium: Colfax-Medium;
 $ContentRegular: Colfax-Regular;
+$ContentLight: Colfax-Light;
 //mixins
 @mixin flex($direction,$wrap,$justify-content,$align-items,$align-content) {
     display: flex;
@@ -64,25 +65,32 @@ a {
     .left-side {background: white;}
     .right-side {background: $lightGrey;}
     .vertical-menu {.menu-item {color: $grey;}}
-    .user-info {.user-name--size-big {color: $secondary !important;}}
+    .user-info {.user-name--size-big,.user-name--size-small {color: $secondary !important;}}
     .card-style {background: white;}
     .white-text-on-dark {color: inherit;}
     .today-date {color: $tertiary;}
     .task-item {background: white;color: black;.task-progress{opacity: .2;background-image: linear-gradient(270deg, #38F1AA 0%, #2B8EE9 100%);}}
     .mini-project-item {background: white;.mini-project-left{color:$secondary;}}
+    .toggle-options {background: white;.toggle-option { color:$grey; &.active {color:$secondary;}}}
+    .notif-item {color: $secondary !important;&.message {background: white;}}
+    .current-task-background {background-image: linear-gradient(180deg, rgba(245,247,250,0.00) 0%, #F6F8FB 50%);}
 }
 .dark-theme {
     .left-side,.right-side {background: $tertiary;}
     .vertical-menu {.menu-item {color: white;}}
-    .user-info {.user-name--size-big {color: white !important;}}
+    .user-info {.user-name--size-big,.user-name--size-small {color: white !important;}}
     .card-style {background: $tertiary;}
     .white-text-on-dark {color: white;}
     .today-date {color: $quinary;}
     .task-item {background: $secondary;color: white !important;.task-progress{opacity: 1;background-image: linear-gradient(270deg, #38F1AA 0%, #2B8EE9 100%);}}
     .mini-project-item {background: $secondary;.mini-project-left{color:white;}}
+    .toggle-options {background: $secondary;.toggle-option {color:$tertiary;&.active {color:white;}}}
+    .notif-item {color: white !important;&.message {background: $secondary;}}
+    .current-task-background {background-image: linear-gradient(180deg, rgba(69,69,109,0.00) 0%, $tertiary 50%);}
 }
 .left-side,.right-side {
     @include normalTransition();
+    overflow-y: auto;
 }
 //main css styles
 .left-side {
@@ -92,9 +100,10 @@ a {
     position: relative;
 }
 .right-side {
+    position: relative;
     box-shadow: 0 2px 13px 0 rgba(0,0,0,0.03);
     border-radius: 34px 0 0 34px;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
     width: 270px;
     height: 100vh;
 }
@@ -102,6 +111,9 @@ a {
     @include flex(row,nowrap,flex-start,center,center);
     .user-name--size-big {
         @include text(.9rem,$TitleBold,$secondary);
+    }
+    .user-name--size-small {
+        @include text(.65rem,$TitleBold,$secondary);
     }
     .user-role {
         @include text(.7rem,$TitleRegular,$grey);
@@ -398,11 +410,11 @@ a {
     @include flex(row,nowrap,space-between,center,center);
     padding: 9px;
     width: 100%;
-    // box-shadow: 0 4px 15px 0 rgba(0,0,0,0.05);
     box-shadow: 0 22px 30px 0 rgba(0, 0, 0, 0.025);
     margin-top: 10px;
     border-radius: 12px;
     @include normalTransition();
+    cursor: pointer;
     &:hover {
         box-shadow: 0 22px 27px 0 rgba(0,0,0,0.06);
     }
@@ -442,5 +454,149 @@ a {
         color: #2688FE;
         text-align: right;
         padding-right: 10px;
+    }
+}
+//right side
+.toggle-options {
+    border-radius: 20px;
+    overflow: hidden;
+    @include flex(row,nowrap,space-between,center,center);
+    .toggle-option {
+        cursor: pointer;
+        font-family: $TitleBold;
+        font-size: .7rem;
+        color: $grey;
+        flex: 1;
+        text-align: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        @include normalTransition();
+        &:hover {
+            color: $quaternary;
+        }
+    }
+}
+//notification center
+.notif-toggle-options {
+    position: sticky;
+    top: 0;
+    z-index: 1111;
+}
+.notif-title-date {
+    font-family: $TitleRegular;
+    font-size: .9rem;
+    color: $grey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.notif-item {
+    box-shadow: 0 22px 34px 0 rgba(0,0,0,0.02);
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 13px;
+    .notif-title-bar {
+        @include flex(row,nowrap,space-between,center,center);
+        .notif-date {
+            font-family: $TitleRegular;
+            font-size: .6rem;
+            color: $quaternary;
+        }      
+    }
+    .notif-image {
+        margin-top: 10px;
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 22px 34px 0 rgba(0,0,0,0.02);
+    }
+    .notif-content {
+        padding-top: 7px;
+        padding-bottom: 0px;
+        font-family: $ContentLight;
+        font-size: .7rem;
+        line-height: 15px;
+        letter-spacing: .4px;
+    }
+    &.event {
+        background: $primary;
+        .title {
+            font-family: $ContentMedium;
+            font-size: .75rem;
+            color: white;
+        }
+        .date {
+            font-family: $TitleRegular;
+            font-size: .6rem;
+            color: $lightGrey;
+            padding-top: 3px;
+        }  
+    }
+}
+//current task
+.current-task-background {
+    height: 140px;
+    @include normalTransition();
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    @include flex(column,nowrap,flex-end,center,center);
+    .current-task-item {
+        @include flex(row,nowrap,flex-start,center,center);
+        background: $primary;
+        border-radius: 40px;
+        padding: 15px;
+        height: 70px;
+        width: 100%;
+        margin-bottom: 20px;
+        .current-task-details {
+            padding-left: 13px;
+            @include flex(column,nowrap,center,flex-start,center);
+            color: white;
+            .current-task-project-name {
+                opacity: 0.32;
+                font-family: $TitleBold;
+                font-size: .6rem;
+            }
+            .current-task-name {
+                font-family: $TitleBold;
+                font-size: .7rem;
+            }
+            .current-task-timestamp {
+                font-family: $TitleRegular;
+                font-size: .8rem;
+            }
+        }
+        .task-progress-box {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            @include normalTransition();
+            &:hover {
+                box-shadow: 0 15px 30px 0 rgba(0,0,0,0.15);
+                border-radius: 100%;
+            }
+            .task-progress-action {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                @include flex(row,nowrap,center,center,center);
+                .icon {
+                    margin-left: -1px;
+                    margin-top: -2px;
+                    color: white; 
+                    font-size: 15px;
+                    text-align: center;
+                }
+            }
+            .task-circular-progress {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+        }
     }
 }

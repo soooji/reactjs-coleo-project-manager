@@ -64,7 +64,7 @@ a {
   color: #BDC2D0;
 }
 
-.light-theme .user-info .user-name--size-big {
+.light-theme .user-info .user-name--size-big, .light-theme .user-info .user-name--size-small {
   color: #252439 !important;
 }
 
@@ -99,6 +99,31 @@ a {
   color: #252439;
 }
 
+.light-theme .toggle-options {
+  background: white;
+}
+
+.light-theme .toggle-options .toggle-option {
+  color: #BDC2D0;
+}
+
+.light-theme .toggle-options .toggle-option.active {
+  color: #252439;
+}
+
+.light-theme .notif-item {
+  color: #252439 !important;
+}
+
+.light-theme .notif-item.message {
+  background: white;
+}
+
+.light-theme .current-task-background {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(245, 247, 250, 0)), color-stop(50%, #F6F8FB));
+  background-image: linear-gradient(180deg, rgba(245, 247, 250, 0) 0%, #F6F8FB 50%);
+}
+
 .dark-theme .left-side, .dark-theme .right-side {
   background: #45456D;
 }
@@ -107,7 +132,7 @@ a {
   color: white;
 }
 
-.dark-theme .user-info .user-name--size-big {
+.dark-theme .user-info .user-name--size-big, .dark-theme .user-info .user-name--size-small {
   color: white !important;
 }
 
@@ -142,9 +167,35 @@ a {
   color: white;
 }
 
+.dark-theme .toggle-options {
+  background: #252439;
+}
+
+.dark-theme .toggle-options .toggle-option {
+  color: #45456D;
+}
+
+.dark-theme .toggle-options .toggle-option.active {
+  color: white;
+}
+
+.dark-theme .notif-item {
+  color: white !important;
+}
+
+.dark-theme .notif-item.message {
+  background: #252439;
+}
+
+.dark-theme .current-task-background {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(69, 69, 109, 0)), color-stop(50%, #45456D));
+  background-image: linear-gradient(180deg, rgba(69, 69, 109, 0) 0%, #45456D 50%);
+}
+
 .left-side, .right-side {
   -webkit-transition: ease all .26s;
   transition: ease all .26s;
+  overflow-y: auto;
 }
 
 .left-side {
@@ -155,10 +206,11 @@ a {
 }
 
 .right-side {
+  position: relative;
   -webkit-box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.03);
           box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.03);
   border-radius: 34px 0 0 34px;
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
   width: 270px;
   height: 100vh;
 }
@@ -185,6 +237,12 @@ a {
 
 .user-info .user-name--size-big {
   font-size: 0.9rem;
+  font-family: "Poppins-Bold";
+  color: #252439;
+}
+
+.user-info .user-name--size-small {
+  font-size: 0.65rem;
   font-family: "Poppins-Bold";
   color: #252439;
 }
@@ -823,6 +881,7 @@ a {
   border-radius: 12px;
   -webkit-transition: ease all .26s;
   transition: ease all .26s;
+  cursor: pointer;
 }
 
 .mini-project-item:hover {
@@ -920,5 +979,276 @@ a {
   color: #2688FE;
   text-align: right;
   padding-right: 10px;
+}
+
+.toggle-options {
+  border-radius: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.toggle-options .toggle-option {
+  cursor: pointer;
+  font-family: "Poppins-Bold";
+  font-size: .7rem;
+  color: #BDC2D0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
+}
+
+.toggle-options .toggle-option:hover {
+  color: #9797BA;
+}
+
+.notif-toggle-options {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1111;
+}
+
+.notif-title-date {
+  font-family: "Poppins-Regular";
+  font-size: .9rem;
+  color: #BDC2D0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.notif-item {
+  -webkit-box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+          box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 13px;
+}
+
+.notif-item .notif-title-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.notif-item .notif-title-bar .notif-date {
+  font-family: "Poppins-Regular";
+  font-size: .6rem;
+  color: #9797BA;
+}
+
+.notif-item .notif-image {
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+          box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+}
+
+.notif-item .notif-content {
+  padding-top: 7px;
+  padding-bottom: 0px;
+  font-family: Colfax-Light;
+  font-size: .7rem;
+  line-height: 15px;
+  letter-spacing: .4px;
+}
+
+.notif-item.event {
+  background: #2688FE;
+}
+
+.notif-item.event .title {
+  font-family: Colfax-Medium;
+  font-size: .75rem;
+  color: white;
+}
+
+.notif-item.event .date {
+  font-family: "Poppins-Regular";
+  font-size: .6rem;
+  color: #F8FAFD;
+  padding-top: 3px;
+}
+
+.current-task-background {
+  height: 140px;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.current-task-background .current-task-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background: #2688FE;
+  border-radius: 40px;
+  padding: 15px;
+  height: 70px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.current-task-background .current-task-item .current-task-details {
+  padding-left: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  color: white;
+}
+
+.current-task-background .current-task-item .current-task-details .current-task-project-name {
+  opacity: 0.32;
+  font-family: "Poppins-Bold";
+  font-size: .6rem;
+}
+
+.current-task-background .current-task-item .current-task-details .current-task-name {
+  font-family: "Poppins-Bold";
+  font-size: .7rem;
+}
+
+.current-task-background .current-task-item .current-task-details .current-task-timestamp {
+  font-family: "Poppins-Regular";
+  font-size: .8rem;
+}
+
+.current-task-background .current-task-item .task-progress-box {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
+}
+
+.current-task-background .current-task-item .task-progress-box:hover {
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 100%;
+}
+
+.current-task-background .current-task-item .task-progress-box .task-progress-action {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.current-task-background .current-task-item .task-progress-box .task-progress-action .icon {
+  margin-left: -1px;
+  margin-top: -2px;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+.current-task-background .current-task-item .task-progress-box .task-circular-progress {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=App.css.map */
