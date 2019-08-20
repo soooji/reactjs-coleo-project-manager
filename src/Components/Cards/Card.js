@@ -22,3 +22,21 @@ export function LargeCard(props) {
     </LargeCardComponent>
   );
 }
+export function Large3PartCard(props) {
+    return (
+      <LargeCardComponent className={`card-style ${props.className}`}>
+          <div className="card-head-bar">
+              <div className="card-head-title-box" style={{width:'25%'}}>
+                  {props.left}
+              </div>
+              <div className="card-head-center" style={{width:'50%'}}>
+                  {props.center}
+              </div>
+              <div className="card-head-actions"style={{width:'25%'}}>
+                  {props.right}
+              </div>
+          </div>
+          {props.children}
+      </LargeCardComponent>
+    );
+  }

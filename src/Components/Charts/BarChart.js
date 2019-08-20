@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
 import { Chart } from 'react-charts'
-import { ThemeContext, themes } from '../../APIs/theme-context';
+import { MainContext, themes } from '../../APIs/theme-context';
 import { LargeCard } from '../Cards/Card';
 import { HeadTitle } from '../Texts/Text';
 
@@ -54,7 +54,7 @@ function MyChart({
   activeSeriesIndex,
   setState,...props
 }) {
-  const theme = useContext(ThemeContext)
+  const themeContext = useContext(MainContext)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const data = React.useMemo(
     () => props.data
@@ -120,7 +120,7 @@ function MyChart({
     <>
         <Chart
           data={data}
-          dark={theme === themes.dark ? true : false}
+          dark={themeContext.theme === themes.dark ? true : false}
           series={series}
           axes={axes}
           getSeriesStyle={getSeriesStyle}

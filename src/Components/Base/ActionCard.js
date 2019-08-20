@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react';
-import { LargeCard } from '../../Components/Cards/Card';
-import { HeadTitle } from '../../Components/Texts/Text';
-import { Select } from '../../Components/Form/Select';
-import { CircleSpacer } from '../../Components/Spacer/Spacers';
 import moment from 'moment'
+import { LargeCard } from '../Cards/Card';
+import { HeadTitle } from '../Texts/Text';
+import { CircleSpacer } from '../Spacer/Spacers';
+import { Select } from '../Form/Select';
 function ActionCard() {
   const [now,setNow] = useState(moment());
   useEffect(() => {
@@ -17,7 +17,7 @@ function ActionCard() {
         className="action-bar-card"
         title={
             <>
-                <HeadTitle className="white-text-on-dark" text={now.format('h:mm:ss')}/>
+                <HeadTitle className="white-text-on-dark" text={now.format('h:mm')}/>
                 <CircleSpacer style={{marginLeft:10,marginRight:10}}/>
                 <div className="today-date">
                     {now.format('MMM Do')}

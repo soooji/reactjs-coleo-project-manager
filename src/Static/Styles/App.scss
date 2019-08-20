@@ -1,44 +1,5 @@
-//variables
-$primary: #2688FE;
-$secondary: #252439;
-$tertiary: #45456D;
-$quaternary: #9797BA;
-$quinary: #DEEDFF;
-$senary: #F6F9FD;
-$grey: #BDC2D0;
-$lightGrey: #F8FAFD;
-
-$TitleBold: 'Poppins-Bold';
-$TitleRegular: 'Poppins-Regular';
-$ContentMedium: Colfax-Medium;
-$ContentRegular: Colfax-Regular;
-$ContentLight: Colfax-Light;
-//mixins
-@mixin flex($direction,$wrap,$justify-content,$align-items,$align-content) {
-    display: flex;
-    flex-direction: $direction;
-    flex-wrap: $wrap;
-    justify-content: $justify-content;
-    align-items: $align-items;
-    align-content: $align-content;
-}
-@mixin text($xd-font-size,$font-family,$color) {
-    font-size: $xd-font-size;
-    font-family: $font-family;
-    color: $color;
-}
-@mixin noselect() {
-    -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome and Opera */
-}
-@mixin normalTransition() {
-    transition: ease all .26s;
-}
+@import './Variables.scss';
+@import './Mixins.scss';
 //main css
 body {
     margin: 0;
@@ -53,6 +14,9 @@ a {
 }
 .noselect {
     @include noselect();
+}
+.cursor-pointer {
+    cursor: pointer;
 }
 .App {
     width: 100%;
@@ -105,6 +69,13 @@ a {
     .toggle-options {background: white;.toggle-option { color:$grey; &.active {color:$secondary;}}}
     .notif-item {color: $secondary !important;&.message {background: white;}}
     .current-task-background {background-image: linear-gradient(180deg, rgba(245,247,250,0.00) 0%, #F6F8FB 50%);}
+    .projects {.project-card {background: white;.title-part {.title-texts {.project-title {color: $secondary;}}}.details {.item {.value {color: $secondary;}}}.developers {.user {border: 3px solid white;}}}}
+    .list-box {.sub-items {.sub-item {background: $senary;.part { .title {color: $secondary;}.description {color: $secondary;}}}}}
+    .section-target {.list-item {border: 1px solid $senary;.title {color: $secondary;}}}
+    .skill-items {.skill-item {border: 1px solid $senary;color: $secondary;}}
+    .task-deatils {.part {.task-detail-item {border: 1px solid $senary;color: $secondary;}}}
+    .rbc-calendar {color: inherit}
+    // .intro-box {color: white;}
 }
 .dark-theme {
     .left-side,.right-side {background: $tertiary;}
@@ -118,7 +89,16 @@ a {
     .toggle-options {background: $secondary;.toggle-option {color:$tertiary;&.active {color:white;}}}
     .notif-item {color: white !important;&.message {background: $secondary;}}
     .current-task-background {background-image: linear-gradient(180deg, rgba(69,69,109,0.00) 0%, $tertiary 50%);}
-}
+    .projects {.project-card {background: $secondary;.title-part {.title-texts {.project-title {color: white;}}}.details {.item {.value {color: white;}}}.developers {.user {border: 3px solid $secondary;}}}}
+    .list-box {.sub-items {.sub-item {background: $secondary;.part { .title {color: white;}.description {color: white;}}}}}
+    .section-target {.list-item {border: 1px solid $secondary;.title {color: white;}}}
+    .skill-items {.skill-item {border: 1px solid $secondary;color: white;}}
+    .task-deatils {.part {.task-detail-item {border: 1px solid $secondary;color: $senary;}}}
+    .rbc-calendar {color: white !important;}
+    .intro-box {.title,.description {
+        color: white !important;}
+    }
+} 
 .left-side,.right-side {
     @include normalTransition();
     overflow-y: auto;
@@ -172,13 +152,14 @@ a {
 }
 .text-head-title {
     @include text(1.2rem,$TitleBold,$secondary);
+    padding-left: 10px;
 }
 .flex-row-space-between-center {
     @include flex(row,nowrap,space-between,center,center);
 }
 
 //select
-.select {
+.select { 
     cursor: pointer;
     position: relative;
     background: $senary;
@@ -258,6 +239,9 @@ a {
 }
 .card-head-title-box {
     @include flex(row,nowrap,flex-start,center,center);
+}
+.card-head-center {
+    @include flex(row,nowrap,center,center,center);
 }
 .today-date {
     opacity: 0.32;
@@ -435,7 +419,12 @@ a {
 .half-card {
     width: calc(50% - 10px);
 }
-
+.full-width-card {
+    width:100%;
+} 
+.third-card {
+    width: calc(33.33% - 15px);
+} 
 //projects
 .mini-project-item {
     @include flex(row,nowrap,space-between,center,center);
@@ -482,7 +471,7 @@ a {
     .mini-project-progress-percentage {
         font-family: $TitleBold;
         font-size: 1rem;
-        color: #2688FE;
+        color: $primary;
         text-align: right;
         padding-right: 10px;
     }
@@ -627,6 +616,370 @@ a {
                 position: absolute;
                 width: 100%;
                 height: 100%;
+            }
+        }
+    }
+}
+.projects {
+    @include flex(row,wrap,space-between,center,center);
+    .project-card {
+        margin-bottom: 15px;
+        margin-top: 10px;
+        box-shadow: 0 22px 34px 0 rgba(0,0,0,0.04);
+        border-radius: 12px; 
+        padding: 14px;
+        @include normalTransition();
+        cursor: pointer;
+        .title-part {
+            @include flex(row,nowrap,flex-start,center,center);
+            img {
+                border-radius: 7px;
+                width: 50px;
+                height: 50px;
+            }
+            .title-texts {
+                padding-left: 10px;
+                @include flex(column,nowrap,center,flex-start,center);
+                .project-title {
+                    font-family: $TitleBold;
+                    font-size: .8rem;
+                }
+                .project-owner {
+                    @include flex(row,nowrap,flex-start,center,center);
+                    cursor: pointer;
+                    font-family: $TitleRegular;
+                    font-size: .7rem;
+                    color: $grey;
+                    .icon {
+                        font-size: .5rem;
+                        margin-left: 3px;
+                    }
+                }
+            }
+        }
+        .details {
+            margin-top: 10px;
+            .item {
+                @include flex(row,nowrap,flex-start,center,center);
+                font-family: $TitleRegular;
+                font-size: .7rem;
+                .title {
+                    color: $grey;
+                }
+                .value {
+                    padding-left: 4px;
+                }
+            }
+        }
+        .developers {
+            width: 100%;
+            @include flex(row,nowrap,flex-end,center,center);
+            padding-right: 5px;
+            margin-top: 10px;
+            .user {
+                margin-right: -13px;
+                border-radius: 100px;
+            }
+        }
+        &:hover {
+            box-shadow: 0 10px 32px 0 rgba(0,0,0,0.06);
+        }
+    }
+}
+.project-progress {
+    font-family: $TitleBold;
+    font-size: 1rem;
+    color: $primary;
+    text-align: right;
+    padding-right: 10px;
+}
+.project-sections {
+    margin-top: 20px;
+    .section {
+        margin-top: 15px;
+    }
+}
+ 
+.list-box {
+    .title-bar {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        @include flex(row,nowrap,space-between,center,center);
+        .title {
+            font-family: $TitleBold;
+            font-size: 1rem;
+            color: $primary;
+        }
+        .details {
+            font-family: $TitleRegular;
+            font-size: 0.9rem;
+            color: $grey;
+            text-align: right;
+        }
+    }
+    .sub-items {
+        .sub-item {
+            // background: $senary;
+            box-shadow: 0 22px 34px 0 rgba(0,0,0,0.02);
+            border-radius: 12px;
+            padding: 17px;
+            margin-top: 10px;
+            // border: 1px solid $senary;
+            @include normalTransition();
+            @include flex(row,nowrap,space-between,center,center);
+            .left {
+                @include flex(row,nowrap,flex-start,center,center);
+            }
+            .right {
+                @include flex(row,nowrap,flex-end,center,center);
+            }
+            .part { 
+                .title {
+                    font-family: $TitleBold;
+                    font-size: .9rem;
+                    // color: $secondary;
+                }
+                .spcaer {
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 10px;
+                    background: $quinary;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+                .description {
+                    font-family: $TitleRegular;
+                    font-size: .8rem;
+                    // color: $secondary;
+                    letter-spacing: 0;
+                }
+            }
+            .right-text {
+                font-family: $TitleBold;
+                font-size: .9rem;
+                color: $primary;
+                text-align: right;
+            }
+            .right-icon {
+                font-size: 1.3rem;
+                color: $quinary;
+                margin-left: 10px;
+            }
+            &:hover {
+                // border: 1px solid $primary;
+            }
+        }
+    }
+}
+
+.button { 
+    cursor: pointer;
+    position: relative;
+    background: $senary;
+    border-radius: 6px;
+    color: $secondary;
+    padding: 9px;
+    @include flex(row,nowrap,center,center,center);
+    .value {
+        font-family: $TitleRegular;
+        font-size: .8em;
+    }
+    .icon {
+        font-size: 1rem;
+        padding-right: 5px;
+        line-height: 0px;
+    }
+}
+
+.section-target {
+    margin-top: 20px;
+    .list-item {
+        // border: 1px solid #F6F9FD;
+        border-radius: 12px;
+        padding: 10px;
+        margin-top: 10px;
+        @include flex(row,nowrap,space-between,center,center);
+        .title {
+            font-family: $TitleRegular;
+            font-size: .95rem;
+            // color: $secondary;
+            margin-left: 10px;
+        }
+    }
+}
+.skill-items {
+    @include flex(row,nowrap,flex-end,center,center);
+    .skill-item {
+        box-shadow: 0 22px 24px 0 rgba(0,0,0,0.03);
+        border-radius: 30px;
+        font-family: $TitleRegular;
+        font-size: .8rem;
+        padding: 8px;
+        @include flex(row,nowrap,center,center,center);
+        cursor: pointer;
+        @include normalTransition();
+        margin-left: 10px;
+        transform: scale(1);
+        .skill-icon {
+            font-size: .9rem;
+            margin-left: 8px;
+        }
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+}
+.info-icon {
+    font-size: 1.3rem;
+    color: $grey;   
+    cursor: pointer;
+}
+.multipart-card-title {
+    @include flex(column,nowrap,center,center,center);
+}
+.card-title-desc {
+    display: inline-block;
+    font-family: $TitleRegular;
+    font-size: .8rem;
+    color: $grey;
+}
+
+.task-deatils {
+    @include flex(row,nowrap,space-between,flex-start,flex-start);
+    margin-top: 15px;
+    .part {
+        &.half {
+            width: calc(50% - 10px);
+        }
+        &.full {
+            width: 100%;
+        }
+        .task-detail-item {
+            border-radius: 12px;
+            padding: 13px;
+            width: 100%;
+            margin-bottom: 10px;
+            &.horiz {
+                @include flex(row,nowrap,space-between,center,center);
+                .desc {
+                    font-family: $TitleRegular;
+                    font-size: .9rem;
+                    text-align: right;
+                }
+            }
+            &.vert {
+                @include flex(column,nowrap,flex-start,flex-start,flex-start);
+                .desc {
+                    margin-top: 10px;
+                    font-family: $TitleRegular;
+                    font-size: .8rem;
+                }
+            }
+            .title {
+                font-family: $TitleRegular;
+                font-size: .9rem;
+            }
+        }
+    }
+}
+//calendar
+.calendar-container {
+    width: 100%;
+    margin-top: 20px;
+    font-family: $TitleRegular;
+}
+
+//login page
+.auth-page {
+    width: 100%;
+    height: 100vh;
+    @include flex(row,nowrap,center,center,center);
+    .intro-box {
+        width: 40%;
+        height: auto;
+        @include flex(column,nowrap,center,center,center);
+        .title {
+            @include text(3.1rem,$TitleBold,$secondary);
+            margin: 0;
+        }
+        .image {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            width: 100%;
+            height: 230px;
+            background-position: center;
+            background-size: contain;
+            background-image: url('./../Images/team.svg');
+            background-repeat: no-repeat;
+        }
+        .description {
+            @include text(2.2rem,$TitleBold,$secondary);
+            text-align: center;
+        }
+        .apply {
+            @include text(0.7rem,$TitleBold,$primary);
+            background: change-color($color: $primary, $alpha: 0.3);
+            padding: 10px 14px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            @include normalTransition();
+            &:hover {
+                background: $quaternary;
+                color: white;
+            }
+        }
+    }
+    .login-box {
+        margin-left: 100px;
+        background: white;
+        box-shadow: 0 22px 34px 0 rgba(0,0,0,0.04);
+        border-radius: 20px;
+        @include flex(column,nowrap,center,center,center);
+        padding: 20px;
+        width: 25%;
+        min-width: 200px;
+        max-width: 400px;
+        .title {
+            @include text(1.4rem,$TitleBold,$secondary);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        input {
+            margin-top: 10px;
+            background: #F6F9FD;
+            box-shadow: 0 22px 34px 0 rgba(0,0,0,0.02);
+            border-radius: 12px;
+            padding: 13px;
+            @include text(.9rem,$TitleRegular,$secondary);
+            text-align: left;
+            width: 100%;
+            outline: none;
+            border: 0;
+        }
+        .submit {
+            width: 100%;
+            margin-top: 15px;
+            background: #2688FE;
+            box-shadow: 0 22px 34px 0 rgba(0,0,0,0.02);
+            border-radius: 12px;
+            @include text(.9rem,$TitleBold,white);
+            padding: 15px 0;
+            text-align: center;
+            cursor: pointer;
+            @include normalTransition();
+            transform: scale(1);
+            &:hover {
+                box-shadow: 0 13px 34px 0 change-color($color: $primary, $alpha: 0.4);
+            }
+            &:active {
+                transform: scale(.95);
+            }
+            &.loading {
+                @include text(.9rem,$TitleBold,rgba(255,255,255,.5));
             }
         }
     }

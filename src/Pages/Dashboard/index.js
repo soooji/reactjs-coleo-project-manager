@@ -1,5 +1,4 @@
 import React from 'react';
-import ActionCard from './ActionCard';
 import Tasks from './Tasks';
 import BarChart from '../../Components/Charts/BarChart';
 import Projects from './Projects';
@@ -20,7 +19,6 @@ function Dashboard() {
   ]
   return (
     <div className="column-items">
-      <ActionCard/>
       <Tasks/>
       <div className="row-items">
         <BarChart data={workTimeData}/>

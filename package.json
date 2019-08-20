@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.2.0",
     "@material-ui/icons": "^4.2.1",
+    "date-arithmetic": "^4.0.1",
     "framer": "^1.0.14",
     "humanize-duration": "^3.20.0",
     "i": "^0.3.6",
@@ -13,11 +14,13 @@
     "npm": "^6.10.1",
     "objectmodel": "^4.0.1",
     "react": "^16.8.6",
+    "react-big-calendar": "^0.22.0",
     "react-charts": "^2.0.0-alpha.12",
     "react-circular-progressbar": "^2.0.1",
     "react-clock": "^2.3.0",
     "react-day-picker": "^7.3.0",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2"
   },

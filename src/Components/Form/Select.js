@@ -2,9 +2,9 @@ import React,{useState,useEffect,useRef,useContext} from 'react';
 import { Frame, useCycle } from "framer";
 import ArrowDown from '@material-ui/icons/KeyboardArrowDownOutlined'
 import {useOutsideClick} from './../../APIs/Utility'
-import { themes,ThemeContext } from '../../APIs/theme-context';
+import { themes,MainContext } from '../../APIs/theme-context';
 export function Select(props) {  
-    const theme = useContext(ThemeContext)
+    const themeContext = useContext(MainContext)
     const [selectedOption,setSelectedOption] = useState({id: -1,title: 'Choose'})
     const [animate, cycle] = useCycle(
         {
@@ -83,8 +83,8 @@ export function Select(props) {
   return (
       <div ref={wrapperRef} className="select noselect"
         style={{
-            background: theme === themes.dark ? theme.background : '#F6F9FD',
-            color: theme === themes.dark ? 'white' : '#252439',
+            background: themeContext.theme === themes.dark ? themeContext.theme.background : '#F6F9FD',
+            color: themeContext.theme === themes.dark ? 'white' : '#252439',
         }}
       >
         <div onClick={()=>toggleSelect()} className="select-in">
@@ -107,7 +107,7 @@ export function Select(props) {
                     custom={v}
                     width="calc(100% - 10px)"
                     height="initial"
-                    background={theme === themes.dark ? theme.foreground : 'white'}
+                    background={themeContext.theme === themes.dark ? themeContext.theme.foreground : 'white'}
                     className="select-option"
                     position="relative"
                     onClick={()=>changeOption(v)}

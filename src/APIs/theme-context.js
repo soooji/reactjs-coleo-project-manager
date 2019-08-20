@@ -10,6 +10,7 @@ export const themes = {
     },
   };
   
-  export const ThemeContext = React.createContext(
-    themes.dark // default value
-  );
+export const MainContext = React.createContext({
+  theme: themes.dark,
+  token: null
+});

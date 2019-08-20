@@ -31,8 +31,8 @@ function Tasks() {
                 <div className="action">Action</div>
             </div>
 
-            <TaskItem task={new Task({id:0,title:'Landing Page',project:'LuckyHouse',duration:3600000,status:"completed",progress:100})}/>
-            <TaskItem task={new Task({id:0,title:'Process Research',project:'Parkners',duration:4600000,status:"started",progress:45})}/>
+            {/* <TaskItem task={new Task({id:0,title:'Landing Page',project:'LuckyHouse',duration:3600000,status:"completed",progress:100})}/> */}
+            {/* <TaskItem task={new Task({id:0,title:'Process Research',project:'Parkners',duration:4600000,status:"started",progress:45})}/> */}
     </LargeCard>
   );
 }

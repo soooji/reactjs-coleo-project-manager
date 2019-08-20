@@ -12,7 +12,7 @@ function MessageNotificationItem(props) {
             {props.date}
           </div>
         </div>
-        {props.image ? 
+        {props.image ?
         <img
           alt="Cover"
           src={props.image}

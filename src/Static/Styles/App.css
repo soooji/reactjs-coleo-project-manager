@@ -28,6 +28,10 @@ a {
                                     supported by Chrome and Opera */
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .App {
   width: 100%;
   height: 100%;
@@ -156,6 +160,56 @@ a {
   background-image: linear-gradient(180deg, rgba(245, 247, 250, 0) 0%, #F6F8FB 50%);
 }
 
+.light-theme .projects .project-card {
+  background: white;
+}
+
+.light-theme .projects .project-card .title-part .title-texts .project-title {
+  color: #252439;
+}
+
+.light-theme .projects .project-card .details .item .value {
+  color: #252439;
+}
+
+.light-theme .projects .project-card .developers .user {
+  border: 3px solid white;
+}
+
+.light-theme .list-box .sub-items .sub-item {
+  background: #F6F9FD;
+}
+
+.light-theme .list-box .sub-items .sub-item .part .title {
+  color: #252439;
+}
+
+.light-theme .list-box .sub-items .sub-item .part .description {
+  color: #252439;
+}
+
+.light-theme .section-target .list-item {
+  border: 1px solid #F6F9FD;
+}
+
+.light-theme .section-target .list-item .title {
+  color: #252439;
+}
+
+.light-theme .skill-items .skill-item {
+  border: 1px solid #F6F9FD;
+  color: #252439;
+}
+
+.light-theme .task-deatils .part .task-detail-item {
+  border: 1px solid #F6F9FD;
+  color: #252439;
+}
+
+.light-theme .rbc-calendar {
+  color: inherit;
+}
+
 .dark-theme .left-side, .dark-theme .right-side {
   background: #45456D;
 }
@@ -222,6 +276,60 @@ a {
 .dark-theme .current-task-background {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(69, 69, 109, 0)), color-stop(50%, #45456D));
   background-image: linear-gradient(180deg, rgba(69, 69, 109, 0) 0%, #45456D 50%);
+}
+
+.dark-theme .projects .project-card {
+  background: #252439;
+}
+
+.dark-theme .projects .project-card .title-part .title-texts .project-title {
+  color: white;
+}
+
+.dark-theme .projects .project-card .details .item .value {
+  color: white;
+}
+
+.dark-theme .projects .project-card .developers .user {
+  border: 3px solid #252439;
+}
+
+.dark-theme .list-box .sub-items .sub-item {
+  background: #252439;
+}
+
+.dark-theme .list-box .sub-items .sub-item .part .title {
+  color: white;
+}
+
+.dark-theme .list-box .sub-items .sub-item .part .description {
+  color: white;
+}
+
+.dark-theme .section-target .list-item {
+  border: 1px solid #252439;
+}
+
+.dark-theme .section-target .list-item .title {
+  color: white;
+}
+
+.dark-theme .skill-items .skill-item {
+  border: 1px solid #252439;
+  color: white;
+}
+
+.dark-theme .task-deatils .part .task-detail-item {
+  border: 1px solid #252439;
+  color: #F6F9FD;
+}
+
+.dark-theme .rbc-calendar {
+  color: white !important;
+}
+
+.dark-theme .intro-box .title, .dark-theme .intro-box .description {
+  color: white !important;
 }
 
 .left-side, .right-side {
@@ -346,6 +454,7 @@ a {
   font-size: 1.2rem;
   font-family: "Poppins-Bold";
   color: #252439;
+  padding-left: 10px;
 }
 
 .flex-row-space-between-center {
@@ -516,6 +625,26 @@ a {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.card-head-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -885,6 +1014,14 @@ a {
 
 .half-card {
   width: calc(50% - 10px);
+}
+
+.full-width-card {
+  width: 100%;
+}
+
+.third-card {
+  width: calc(33.33% - 15px);
 }
 
 .mini-project-item {
@@ -1282,5 +1419,778 @@ a {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.projects .project-card {
+  margin-bottom: 15px;
+  margin-top: 10px;
+  -webkit-box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.04);
+          box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  padding: 14px;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
+  cursor: pointer;
+}
+
+.projects .project-card .title-part {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.projects .project-card .title-part img {
+  border-radius: 7px;
+  width: 50px;
+  height: 50px;
+}
+
+.projects .project-card .title-part .title-texts {
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.projects .project-card .title-part .title-texts .project-title {
+  font-family: "Poppins-Bold";
+  font-size: .8rem;
+}
+
+.projects .project-card .title-part .title-texts .project-owner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  cursor: pointer;
+  font-family: "Poppins-Regular";
+  font-size: .7rem;
+  color: #BDC2D0;
+}
+
+.projects .project-card .title-part .title-texts .project-owner .icon {
+  font-size: .5rem;
+  margin-left: 3px;
+}
+
+.projects .project-card .details {
+  margin-top: 10px;
+}
+
+.projects .project-card .details .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  font-family: "Poppins-Regular";
+  font-size: .7rem;
+}
+
+.projects .project-card .details .item .title {
+  color: #BDC2D0;
+}
+
+.projects .project-card .details .item .value {
+  padding-left: 4px;
+}
+
+.projects .project-card .developers {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding-right: 5px;
+  margin-top: 10px;
+}
+
+.projects .project-card .developers .user {
+  margin-right: -13px;
+  border-radius: 100px;
+}
+
+.projects .project-card:hover {
+  -webkit-box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.06);
+          box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.06);
+}
+
+.project-progress {
+  font-family: "Poppins-Bold";
+  font-size: 1rem;
+  color: #2688FE;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.project-sections {
+  margin-top: 20px;
+}
+
+.project-sections .section {
+  margin-top: 15px;
+}
+
+.list-box .title-bar {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.list-box .title-bar .title {
+  font-family: "Poppins-Bold";
+  font-size: 1rem;
+  color: #2688FE;
+}
+
+.list-box .title-bar .details {
+  font-family: "Poppins-Regular";
+  font-size: 0.9rem;
+  color: #BDC2D0;
+  text-align: right;
+}
+
+.list-box .sub-items .sub-item {
+  -webkit-box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+          box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  padding: 17px;
+  margin-top: 10px;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.list-box .sub-items .sub-item .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.list-box .sub-items .sub-item .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.list-box .sub-items .sub-item .part .title {
+  font-family: "Poppins-Bold";
+  font-size: .9rem;
+}
+
+.list-box .sub-items .sub-item .part .spcaer {
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  background: #DEEDFF;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.list-box .sub-items .sub-item .part .description {
+  font-family: "Poppins-Regular";
+  font-size: .8rem;
+  letter-spacing: 0;
+}
+
+.list-box .sub-items .sub-item .right-text {
+  font-family: "Poppins-Bold";
+  font-size: .9rem;
+  color: #2688FE;
+  text-align: right;
+}
+
+.list-box .sub-items .sub-item .right-icon {
+  font-size: 1.3rem;
+  color: #DEEDFF;
+  margin-left: 10px;
+}
+
+.button {
+  cursor: pointer;
+  position: relative;
+  background: #F6F9FD;
+  border-radius: 6px;
+  color: #252439;
+  padding: 9px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.button .value {
+  font-family: "Poppins-Regular";
+  font-size: .8em;
+}
+
+.button .icon {
+  font-size: 1rem;
+  padding-right: 5px;
+  line-height: 0px;
+}
+
+.section-target {
+  margin-top: 20px;
+}
+
+.section-target .list-item {
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.section-target .list-item .title {
+  font-family: "Poppins-Regular";
+  font-size: .95rem;
+  margin-left: 10px;
+}
+
+.skill-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.skill-items .skill-item {
+  -webkit-box-shadow: 0 22px 24px 0 rgba(0, 0, 0, 0.03);
+          box-shadow: 0 22px 24px 0 rgba(0, 0, 0, 0.03);
+  border-radius: 30px;
+  font-family: "Poppins-Regular";
+  font-size: .8rem;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  cursor: pointer;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
+  margin-left: 10px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.skill-items .skill-item .skill-icon {
+  font-size: .9rem;
+  margin-left: 8px;
+}
+
+.skill-items .skill-item:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.info-icon {
+  font-size: 1.3rem;
+  color: #BDC2D0;
+  cursor: pointer;
+}
+
+.multipart-card-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.card-title-desc {
+  display: inline-block;
+  font-family: "Poppins-Regular";
+  font-size: .8rem;
+  color: #BDC2D0;
+}
+
+.task-deatils {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  margin-top: 15px;
+}
+
+.task-deatils .part.half {
+  width: calc(50% - 10px);
+}
+
+.task-deatils .part.full {
+  width: 100%;
+}
+
+.task-deatils .part .task-detail-item {
+  border-radius: 12px;
+  padding: 13px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.task-deatils .part .task-detail-item.horiz {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.task-deatils .part .task-detail-item.horiz .desc {
+  font-family: "Poppins-Regular";
+  font-size: .9rem;
+  text-align: right;
+}
+
+.task-deatils .part .task-detail-item.vert {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.task-deatils .part .task-detail-item.vert .desc {
+  margin-top: 10px;
+  font-family: "Poppins-Regular";
+  font-size: .8rem;
+}
+
+.task-deatils .part .task-detail-item .title {
+  font-family: "Poppins-Regular";
+  font-size: .9rem;
+}
+
+.calendar-container {
+  width: 100%;
+  margin-top: 20px;
+  font-family: "Poppins-Regular";
+}
+
+.auth-page {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.auth-page .intro-box {
+  width: 40%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.auth-page .intro-box .title {
+  font-size: 3.1rem;
+  font-family: "Poppins-Bold";
+  color: #252439;
+  margin: 0;
+}
+
+.auth-page .intro-box .image {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 230px;
+  background-position: center;
+  background-size: contain;
+  background-image: url("./../Images/team.svg");
+  background-repeat: no-repeat;
+}
+
+.auth-page .intro-box .description {
+  font-size: 2.2rem;
+  font-family: "Poppins-Bold";
+  color: #252439;
+  text-align: center;
+}
+
+.auth-page .intro-box .apply {
+  font-size: 0.7rem;
+  font-family: "Poppins-Bold";
+  color: #2688FE;
+  background: rgba(38, 136, 254, 0.3);
+  padding: 10px 14px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
+}
+
+.auth-page .intro-box .apply:hover {
+  background: #9797BA;
+  color: white;
+}
+
+.auth-page .login-box {
+  margin-left: 100px;
+  background: white;
+  -webkit-box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.04);
+          box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 20px;
+  width: 25%;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.auth-page .login-box .title {
+  font-size: 1.4rem;
+  font-family: "Poppins-Bold";
+  color: #252439;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.auth-page .login-box input {
+  margin-top: 10px;
+  background: #F6F9FD;
+  -webkit-box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+          box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  padding: 13px;
+  font-size: 0.9rem;
+  font-family: "Poppins-Regular";
+  color: #252439;
+  text-align: left;
+  width: 100%;
+  outline: none;
+  border: 0;
+}
+
+.auth-page .login-box .submit {
+  width: 100%;
+  margin-top: 15px;
+  background: #2688FE;
+  -webkit-box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+          box-shadow: 0 22px 34px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-family: "Poppins-Bold";
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: ease all .26s;
+  transition: ease all .26s;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.auth-page .login-box .submit:hover {
+  -webkit-box-shadow: 0 13px 34px 0 rgba(38, 136, 254, 0.4);
+          box-shadow: 0 13px 34px 0 rgba(38, 136, 254, 0.4);
+}
+
+.auth-page .login-box .submit:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.auth-page .login-box .submit.loading {
+  font-size: 0.9rem;
+  font-family: "Poppins-Bold";
+  color: rgba(255, 255, 255, 0.5);
 }
 /*# sourceMappingURL=App.css.map */
